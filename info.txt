@@ -1,0 +1,2 @@
+verzija:1.0
+ignore:

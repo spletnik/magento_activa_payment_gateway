@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Mage
+ * @package    Spletnisistemi_Activa
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Spletnisistemi_Activa>
+            <version>0.1.2</version>
+        </Spletnisistemi_Activa>
+    </modules>
+    <global>
+        <models>
+            <activa>
+                <class>Spletnisistemi_Activa_Model</class>
+                <resourceModel>activa_mysql4</resourceModel>
+            </activa>
+            <activa_mysql4>
+                <class>Spletnisistemi_Activa_Model_Mysql4</class>
+                <entities>
+                    <table>activa_api_debug</table>
+                </entities>
+            </activa_mysql4>
+        </models>
+        <helpers>
+            <activa>
+                <class>Spletnisistemi_Activa_Helper</class>
+            </activa>
+        </helpers>
+        <resources>
+            <activa_setup>
+                <setup>
+                    <module>Spletnisistemi_Activa</module>
+                    <class>Spletnisistemi_Activa_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </activa_setup>
+            <activa_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </activa_write>
+            <activa_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </activa_read>
+        </resources>
+        <blocks>
+            <activa>
+                <class>Spletnisistemi_Activa_Block</class>
+            </activa>
+        </blocks>
+    </global>
+
+    <frontend>
+        <secure_url>
+            <activa>/activa/activa</activa>
+        </secure_url>
+        <routers>
+            <activa>
+                <use>standard</use>
+                <args>
+                    <module>Spletnisistemi_Activa</module>
+                    <frontName>activa</frontName>
+                </args>
+            </activa>
+        </routers>
+        <translate>
+            <modules>
+                <Spletnisistemi_Activa>
+                    <files>
+                        <default>Spletnisistemi_Activa.csv</default>
+                    </files>
+                </Spletnisistemi_Activa>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <activa>
+                    <file>activa.xml</file>
+                </activa>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Spletnisistemi_Activa>
+                    <files>
+                        <default>Spletnisistemi_Activa.csv</default>
+                    </files>
+                </Spletnisistemi_Activa>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <activa>
+                                            <title>Activa Section</title>
+                                        </activa>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <payment>
+            <activa>
+                <active>1</active>
+                <model>activa/activa</model>
+                <title>Kreditne kartice (Spletni sistemi Activa)</title>
+                <order_status>pending</order_status>
+                <allowspecific>0</allowspecific>
+                <resourcepath>E:\spletnisistemi\magento\app\code\local\Spletnisistemi\Activa\resources\</resourcepath>
+                <paymenttype>4</paymenttype>
+                <currencycode>978</currencycode>
+                <languagecode>SI</languagecode>
+                <terminalalias>Cha Terminal</terminalalias>
+                <sendmailorderconfirmation>1</sendmailorderconfirmation>
+            </activa>
+        </payment>
+    </default>
+</config>
