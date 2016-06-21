@@ -1,1 +1,4 @@
-# magento_activa_payment_gateway
+# Magento Activa Payment Gateway
+
+## Installation
+More info about installation is [here](doc/INSTALL.md).
